@@ -28,6 +28,36 @@ pointers exist seperate to the memeory they interact with but need to have the s
 When assigning memory to a pointer we use the '&' symbol to call the address of the memory as the pointer really stores the memory address thats how it knows the locations of the memory it is interacting with.
 
 
+**OOP**
+"Creating a class"
+When creating a class we need to declare the Class name the public and private paramters, these include the constructors, variables and methods. typically this is done using a '.h file however it can all be done in one file. the main thing to note is that it all needs to be in the header.
 
+"defineing methods and constructors"
+As we would typically define functions in our code because these are attached to a Class they need to be proceeded wityh the classes tag and 2 colons, ie. void Card::returnNumber();
+this then allows the compiler to understand these methods are accessable from the objectrs created by this class.
 
+When we are defining our constructor it is a little bit differtent and there are a few things to consider, in our red 7 example when a card is made it is assigned a number and colour. 
+we have initialised these variables as private in our class and when the constructor is initialised we access the variables in the object using the this-> command to use the numbners that have been input to assign values to the objects variables.
+
+we can also use the 'this->' command to access the values we have assigned later when creating our methods if we need to use thes values.
+
+"ifndef"
+when creating a headerfile to prevent multiple inclusions of the same header file we use the commands 
+
+#ifndef HEADER_H
+#define HEADER_H
+
+#endif // end of file
+
+if the header is not defined it will define it if it already is, it will not include it again essentially. this is only used for header files.
+
+"arrays in c++"
+an array in c++ is a container of pointers they can be created to any size using [number] at the time of declaring. however there is no way to check the length of an array in c++ it is good practise to not use magic number when defining array sizes and kee ntrack of the array sizes.
+
+when you are passing an array into a function understand it is already an address to a memory point so you do not need to pass the address to a pointer using the '&' symbol.
+
+if you wish to print en element in the array or write to an element you can call it using the appropriate number in square brackets [number], if you wish to print the entire array you can pass it in without an element assigned or dereferencing, it will simply print the entire array.
+
+"referencing"
+when using pass by reference you are passing an address to function, its very much like using a pointer to alter a memory address however in this instance you have created a new temporary variable with the same address as one outside the function, so when you are assigning to that variable you are accessing it directlt, not through a pointer referenceing the memory. in this instance you do not need to dereference to write or read the memory at the address it is attached to.
 
