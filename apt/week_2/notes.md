@@ -61,3 +61,5 @@ if you wish to print en element in the array or write to an element you can call
 "referencing"
 when using pass by reference you are passing an address to function, its very much like using a pointer to alter a memory address however in this instance you have created a new temporary variable with the same address as one outside the function, so when you are assigning to that variable you are accessing it directlt, not through a pointer referenceing the memory. in this instance you do not need to dereference to write or read the memory at the address it is attached to.
 
+"Swap task"
+When completing the swap task, I had to fix the function by making sure when we were swapping the values via the pointer we de-referenced the pointers. also we did not need pointers outside the function. we were able to use standard varibales and pass the address into the function to create the temporary pointers for the functions use, also when using the temp variable to complete the swap it did not need to be a pointer as it was only used to assist in changes inside the function.
