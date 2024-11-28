@@ -16,9 +16,9 @@ typedef int Colour;
 class Card {
     public:
         Card();
-        Card(colour colour, int number);
+        Card(Colour colour, int number);
         Card(Card& other);
-        ~Card():
+        ~Card();
 
         Colour getColour();
         int getNumber();
