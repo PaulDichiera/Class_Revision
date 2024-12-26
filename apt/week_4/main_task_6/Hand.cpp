@@ -6,14 +6,7 @@ Hand::Hand(){
 }
 
 void Hand::addCard(Card* card){
-    // new Card(RED, 7);
-    // create something that selects a random card
-
-    // we need to add the created card to the cards array
     cards[numStored] = card;
-    std::cout << "Card Allocation: " << numStored << " Card Allocated: " << card->colourAsString() << std::endl;
-    std::cout << "Calling from cards array: " << cards[numStored]->colourAsString() << std::endl;
-
     this->numStored += 1;
 }
 
@@ -23,9 +16,13 @@ int Hand::getNumCards(){
     return numCards;
 }
 
-// Card* Hand::getCard(int index){
-//     cards[index]->colourAsString
-//      Needs input from user then calls the appropriate card from the hand and gives all of the details
+Card* Hand::getCard(int index){
 
-//     create print out details of card once card index is called.
-// }
+    std::cout << "Card Details:" << std::endl;
+    std::cout << "Card colour as string: " << cards[index]->colourAsString() << std::endl;
+    std::cout << "Card colout as number: " << cards[index]->getNumber() << std::endl;
+    std::cout << "Card number: " << cards[index]->getNumber() << std::endl;
+    std::cout << "Card rule: " << cards[index]->getRule() << std::endl; 
+
+    return 0;
+}

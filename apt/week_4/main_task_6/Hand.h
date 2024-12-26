@@ -12,7 +12,7 @@ class Hand {
 
         void addCard(Card* card);
         int getNumCards();
-        // Card* getCard(int index);
+        Card* getCard(int index);
 
     private:
         Card* cards[MAX_CARDS];
