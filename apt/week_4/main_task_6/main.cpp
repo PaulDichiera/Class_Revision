@@ -37,5 +37,18 @@ int main(void){
         hand->getCard(i);
     }
 
+    Hand* hand2 = hand;
+
+
+    std::cout << std::endl;
+    std::cout << "** Copied Hand **" << std::endl;
+    std::cout << std::endl;
+
+
+    for(int i = 0; i < hand->getNumCards(); i++){
+        hand2->getCard(i);
+    }
+    
+
     return EXIT_SUCCESS;
 }

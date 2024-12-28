@@ -27,7 +27,7 @@ class Card {
     public:
         Card();
         Card(Colour colour, int number);
-        Card(Card& other);
+        Card(const Card& other);
         ~Card();
 
         Colour getColour();

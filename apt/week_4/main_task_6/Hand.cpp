@@ -5,9 +5,34 @@ Hand::Hand(){
 
 }
 
+// Hand::Hand(const Hand& other){ // Shallow copy
+//     numStored = other.numStored;
+
+//     for(int i = 0; i < numStored; i++){
+//         cards[i] = other.cards[i];
+//     }
+// }
+
+Hand::Hand(const Hand& other){ // Deep copy
+    numStored = other.numStored;
+
+    for(int i = 0; i < numStored; i++)
+        cards[i] = new Card(*other.cards[i]);
+}
+
+Hand::~Hand() {
+    for(int i = 0; i < numStored; i++){
+        delete cards[i]; // we delete the cards array as if we delete the Card object we will have a dangling pointer if we make a shallow copy
+    }
+}
+
 void Hand::addCard(Card* card){
-    cards[numStored] = card;
-    this->numStored += 1;
+    if(numStored != MAX_CARDS){
+        cards[numStored] = card;
+        this->numStored += 1;
+    } else {
+        std::cout << "** Maximum number of cards reached ** " << std::endl;
+    }
 }
 
 int Hand::getNumCards(){

@@ -8,6 +8,8 @@
 class Hand {
     public:
         Hand();
+        // Hand(const Hand& other); // Shallow copy
+        Hand(const Hand& other); // Deep copy 
         ~Hand();
 
         void addCard(Card* card);

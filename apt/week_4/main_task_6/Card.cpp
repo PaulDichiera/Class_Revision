@@ -6,6 +6,15 @@ Card::Card(Colour colour, int number){
     this->number = number;
 }
 
+Card::Card(const Card& other){
+    colour = other.colour;
+    number = other.number;
+}
+
+Card::~Card(){
+    
+}
+
 Colour Card::getColour(){
     Colour colour = this->colour;
     return colour;

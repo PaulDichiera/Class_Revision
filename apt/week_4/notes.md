@@ -21,3 +21,33 @@ I then use the same iteration technique I use in the length function m=by stoppi
 
 source[] = destination[] - incorrect
 destination[] = source[] - correct
+
+Task 6, 7, 8 ,9:
+I feel it is very important to write in detail for this exercise, In this exercie i Have two classes interacting with eachother, in the card class we create a red 7 card and can perform certain actions on it such as getting the rule, the number and colour. 
+
+Using the hand class we are able to create an object called hand, within this object is a member variable called cards, cards has a maximum ammount [MAX_CARDS] this imitates holding five cards in your hand. In this case we are storing 5 card objects in the cards array on the hand object. we can call hand and pass an index number to the cards array to 'get' the cards details. 
+
+Once the card is in the cards array it is a private member variable. so the cards themseleves cannot be accessed directly they must be accessed via the Hand classes methods.
+
+the use of .other, "Hand(const Hand& other)" when using other 'data = other.data; other is a reference to the already existing object of the same class (Hand) that we are trying to copy.
+the 'other' object is passed to the copy constructor when we initialize a new object using an existing one.
+
+For example sake other.data accesses the data member of the other object, If in this case data is a pointer, eg char* data, other.data reterives the address stored in the data pointer of the other object. 
+
+Other is the reference to the existing object.
+it is passed as a reference (Hand&) to avoid unnessasary copying
+other.data is how we access the data member varible of the other object
+
+
+Shallow Copy:
+
+When creating a shanllow copy we are creating a copy of the pointers in the original object and pointing them to the previous opjects memory spaces. the shallow copy means changes to the shared memory affects both objects.
+
+- a shallow copy should copy the pointers from other to the current object
+- We need to explicitly copy the array and member variable
+
+Deep Copy:
+
+When we create a deep copy we create a similar constructor for the hand class as we do in a shallow copy, however in this case we need to allocate new memory for a deep copy as one aspect of a deep copy is that no memory is shared, in this instance we are creating a copy of hand which may have Card objects stored in the cards array which is a member variable to hand. so when we call the copy constructor we need to allocate new memory by calling the copy constructor of Card, creating a copy by passing the appropriate card object to the constructor. Then allocating it to the appropriate location in the new objects cards array. 
+
+
