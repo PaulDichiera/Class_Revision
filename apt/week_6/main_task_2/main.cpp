@@ -16,5 +16,11 @@ int main(void){
         std::cout << "Linked List Value: " << list->get(i) << std::endl;
     }
 
+    delete list;
+
+    for (int i = 0; i <= list->size(); i++){
+        std::cout << "Linked List Value: " << list->get(i) << std::endl;
+    }
+
     return EXIT_SUCCESS;
 }

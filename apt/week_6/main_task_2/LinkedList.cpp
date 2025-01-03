@@ -2,7 +2,9 @@
 #include "LinkedList.h"
 
 LinkedList::LinkedList(){
+    
     head = nullptr;
+    last = nullptr;
 }
 
 LinkedList::~LinkedList(){
@@ -22,19 +24,16 @@ int LinkedList::size(){
 }
 
 void LinkedList::clear(){
-    if (head == nullptr){
-        delete head;
-    } else {
         Node* temp = head;
-        Node* remove;
-        while(temp->next != nullptr){
-            remove = temp;
+        while(temp != nullptr){ // we use temp, not temp->next as this ensures we take our search to the last node, temp->next would take use to the second last node as we are looing one ahead in our comparison
+            Node* remove = temp; // we need to create a remove pointer each time as we deleting with the data
             temp = temp->next;
+            std::cout << "Deleting Node" << std::endl;
             delete remove;
         }
+        head = nullptr;
+        last = nullptr;
     }
-
-}
 
 int LinkedList::get(int index){
     int result = -1;
@@ -68,12 +67,11 @@ void LinkedList::addBack(int data){
     Node* newNode = new Node(data);
     if(head == nullptr){
         head = newNode;
+        last = newNode;
     } else {
-        Node* temp = head;
-        while(temp->next != nullptr){
-            temp = temp->next;
-        }
-        temp->next = newNode;
+        std::cout << "entered" << std::endl;
+        last->next = newNode;
+        last = newNode;
     }
 
 }

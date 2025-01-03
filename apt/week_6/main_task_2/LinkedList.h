@@ -18,6 +18,7 @@ class LinkedList{
 
         private:
         Node* head;
+        Node* last;
 };
 
 
