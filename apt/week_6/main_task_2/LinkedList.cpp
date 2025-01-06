@@ -14,8 +14,10 @@ LinkedList::~LinkedList(){
 int LinkedList::size(){
     int count = 0;
     if(head != nullptr){
+        count++;
         Node* temp = head;
-        while(temp->next != nullptr){
+        while(temp != nullptr){
+            std::cout << "counted" << std::endl;
             count++;
             temp = temp->next;
         }
@@ -58,7 +60,7 @@ int LinkedList::get(int index){
 }
 
 void LinkedList::addFront(int data){
-    Node* newNode = new Node(data, head);
+    Node* newNode = new Node(data);
     head = newNode;
 
 }
@@ -69,7 +71,6 @@ void LinkedList::addBack(int data){
         head = newNode;
         last = newNode;
     } else {
-        std::cout << "entered" << std::endl;
         last->next = newNode;
         last = newNode;
     }
