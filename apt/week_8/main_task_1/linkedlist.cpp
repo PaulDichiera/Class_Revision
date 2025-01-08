@@ -7,8 +7,7 @@ LinkedList::LinkedList(){
 }
 
 LinkedList::~LinkedList(){
-    //Todo
-    //clear();
+    clear();
 }
 
 int LinkedList::size(){
