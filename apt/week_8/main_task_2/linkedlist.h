@@ -1,6 +1,7 @@
 #ifndef LINKEDLIST_H
 #define LINKEDLIST_H
 
+#include <memory>
 #include "node.h"
 
 class LinkedList {
@@ -22,7 +23,7 @@ class LinkedList {
         void deleteAt(int index);
 
     private:
-        Node* head;
+        std::shared_ptr<Node> head;
 };
 
 #endif //LINKEDLIST_H

@@ -2,9 +2,9 @@
 
 #include "node.h"
 
-Node::Node(int data, Node* next){
+Node::Node(int data, std::shared_ptr<int> next){
     this->data = data;
-    this->next = next;
+    // this->next = next;
 }
 
 Node::Node(Node& other){

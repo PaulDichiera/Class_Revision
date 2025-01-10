@@ -1,4 +1,5 @@
 #include <iostream>
+#include <memory>
 
 #include "linkedlist.h"
 
@@ -17,7 +18,7 @@ int LinkedList::size(){
     if(head == nullptr){
         std::cout << "** List is empty **" << std::endl;
     }else{
-        Node* temp = head;
+        std::shared_ptr<Node> temp = head;
         while(temp != nullptr){
             count++;
             temp = temp->next;
@@ -30,13 +31,13 @@ void LinkedList::clear(){
     if(head == nullptr){
         std::cout << "** List is empty, delete action aborted **" << std::endl;
     }else{
-        Node* remove = head;
-        Node* temp = head;
+        std::shared_ptr<Node> remove = head;
+        std::shared_ptr<Node> temp = head;
         while(temp != nullptr){
             remove = temp;
             temp = temp->next;
             std::cout << "** deleting node **" << std::endl;
-            delete remove;
+            remove = nullptr;
         }
         head = nullptr;
     }
@@ -52,7 +53,7 @@ int LinkedList::get(int index){
         std::cout << "** Selection below possible range, get action aborted **" << std::endl;
     }else{
         int count = 0;
-        Node* temp = head;
+        std::shared_ptr<Node> temp = head;
         while(temp != nullptr){
             if(count == index){
                 result = temp->data;
@@ -65,7 +66,7 @@ int LinkedList::get(int index){
 }
 
 void LinkedList::addFront(int data){
-    Node* newNode = new Node(data);
+    std::shared_ptr<Node> newNode = std::make_shared<Node>(data);
     if(head == nullptr){
         head = newNode;
     }else{
@@ -79,8 +80,8 @@ void LinkedList::addBack(int data){
     if(head == nullptr){
         addFront(data);
     }else{
-        Node* temp = head;
-        Node* newNode = new Node(data);
+        std::shared_ptr<Node> temp = head;
+        std::shared_ptr<Node> newNode = std::make_shared<Node>(data); // allocated the pointer type, pointer name the instead of 'new' make_shared<Node>(data) combines creation and construction
         while(temp->next != nullptr){
             temp = temp->next;
         }
@@ -93,9 +94,9 @@ void LinkedList::deleteFront(){
     if(head == nullptr){
         std::cout << "** List is empty, delete front action aborted **" << std::endl;
     }else{
-        Node* remove = head;
+        std::shared_ptr<Node> remove = head;
         head = head->next;
-        delete remove;
+        remove = nullptr;
         std::cout << "** Front node deleted **" << std::endl;
     }
 }
@@ -104,13 +105,13 @@ void LinkedList::deleteBack(){
     if(head == nullptr){
         std::cout << "** List is empty, delete back action aborted **" << std::endl;
     }else{
-        Node* remove = head;
-        Node* temp = head;
+        std::shared_ptr<Node> remove = head;
+        std::shared_ptr<Node> temp = head;
         while(temp->next->next != nullptr){
             temp = temp->next;
         }
         remove = temp->next;
-        delete remove;
+        remove = nullptr;
         temp->next = nullptr;
         std::cout << "** Front node deleted **" << std::endl;
     }
@@ -175,12 +176,13 @@ void LinkedList::addAt(int index, int data){
         addBack(data);
     }else{
         int count = 0;
-        Node* temp = head;
+        std::shared_ptr<Node> temp = head;
         while(temp != nullptr && count != index -1){
             temp = temp->next;
             count++;
         }
-        Node* newNode = new Node(data);
+        
+        std::shared_ptr<Node> newNode = std::make_shared<Node>(data);
         newNode->next = temp->next;
         temp->next = newNode;
         std::cout << "** Node: " << newNode->data << " added at index: " << index << std::endl;
@@ -200,15 +202,15 @@ void LinkedList::deleteAt(int index){
         deleteBack();
     }else{
         int count = 0;
-        Node* temp = head;
-        Node* remove = head;
+        std::shared_ptr<Node> temp = head;
+        std::shared_ptr<Node> remove = head;
         while(temp->next != nullptr && count != index -1){
             temp = temp->next;
             count++;
         }
         remove = temp->next;
         temp->next = remove->next;
-        delete remove;
+        remove = nullptr;
         std::cout << "** Node deleted at index: " << index << std::endl;
     }
 }
