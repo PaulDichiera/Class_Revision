@@ -14,4 +14,5 @@ class Node {
 };
 
 
-#endif //NODE_H
+
+#endif // NODE_H

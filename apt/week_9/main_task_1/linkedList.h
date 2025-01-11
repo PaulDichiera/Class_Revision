@@ -1,8 +1,8 @@
 #ifndef LINKEDLIST_H
 #define LINKEDLIST_H
 
-#include <memory>
 #include "node.h"
+#include <memory>
 
 class LinkedList {
     public:
@@ -22,8 +22,13 @@ class LinkedList {
         void addAt(int index, int data);
         void deleteAt(int index);
 
-    private:
-        std::shared_ptr<Node> head;
+
+        private:
+            std::shared_ptr<Node> head;
+            int size(std::shared_ptr<Node> node);
+            int get(int index, std::shared_ptr<Node> node, int count);
+            void addBack(int data, std::shared_ptr<Node> node);
+            void deleteBack(std::shared_ptr<Node> node);
 };
 
-#endif //LINKEDLIST_H
+#endif // LINKEDLIST_H
