@@ -2,6 +2,7 @@
 #define LINKEDLIST_H
 
 #include "node.h"
+#include <memory>
 
 class LinkedList {
     public:
@@ -23,8 +24,11 @@ class LinkedList {
 
 
         private:
-            Node* head;
-            int size(Node* node);
+            std::shared_ptr<Node> head;
+            int size(std::shared_ptr<Node> node);
+            int get(int index, std::shared_ptr<Node> node, int count);
+            void addBack(int data, std::shared_ptr<Node> node);
+            void deleteBack(std::shared_ptr<Node> node);
 };
 
 #endif // LINKEDLIST_H
