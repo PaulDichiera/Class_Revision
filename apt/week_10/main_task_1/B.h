@@ -9,7 +9,7 @@ class B : public A{
         B();
         virtual ~B();
 
-        virtual int foo();
+        // virtual int foo();
         virtual void bar();
         virtual void bar(double y);
 };
