@@ -48,5 +48,10 @@ Using the add method we are able to pass one matrix into our current one and add
 -Matrix::operator==(const Matrix& other) const
 This class overloads the == operator allowing it to compare each index of a matrix with another and returning to us if the two are identical or not.
 
+Issues with Polymorphism
+creating the Immutable derived class from the matrix class meant i have to tackle a few new issues, i had to override some methids that we used in both classes, i had to learn that i can call base class methods from derived classes. when calling the base class copy constructor I found i had to do it in the initialisation line. I also have to be careful about which class I am passing into a method or parameter as they are of course different types. working with the constructors I only needed to call the base constructor so mat[SIZE][SIZE] only had to be called from the base class Matrix. so that member variable could be left out of Immutable class, also i can add member variables to derived classes.
+
+also when working with multiple .h files and derived files i only need to call to the main .cpp file the derived files not the base files.
+
 
 
