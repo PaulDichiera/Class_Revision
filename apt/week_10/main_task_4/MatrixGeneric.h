@@ -4,7 +4,7 @@ template<typename T>
 class Matrix {
     public:
         Matrix();
-        Matrix(Matrix<T>& other);
+        Matrix(const Matrix<T>& other);
         virtual ~Matrix();
 
         // getter
