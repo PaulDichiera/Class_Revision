@@ -1,13 +1,15 @@
 #include <iostream>
+#include <memory>
 
 #include "linkedlist.h"
 
-void printList(LinkedList* list);
-void printSize(LinkedList* list);
+void printList(std::shared_ptr<LinkedList> list);
+void printSize(std::shared_ptr<LinkedList> list);
 
 int main(void){
 
-    LinkedList* list = new LinkedList();
+    // LinkedList* list = new LinkedList();
+    std::shared_ptr<LinkedList> list = std::make_shared<LinkedList>();
 
     list->addFront(88);
     list->addFront(23);

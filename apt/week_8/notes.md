@@ -36,4 +36,21 @@ One major thing i realised was I needed to do far more check in my methods to ma
 
 I also realised i did not need to create all of the processes in one if/if else statement. I am able to iterate through the lines in process. i can run the checks i need then run the while loop and activaet the variable once the list location was found. previously i was putting an if statement inside the while loop so the check was happening each cycle. instead i can run the while loop update the variable. then depending on the assignment implement different actions after overall reducing the ammount of checks being undertaken per loop.
 
+Shared pointers
+std::shared_ptr<Node> is a smart pointer type, multiple std::shared_ptr can share ownership of the same Node object.
+The object is destrotyed automatically when the last std::shared_ptr<Node> sharing ownership is destoryed.
 
+example: creating a new node
+
+std::shared_ptr<Node> newNode = std::shared_ptr<new Node(data)>
+-in the above example a Node is dynamically allocated with new Node(data)
+-the std::share_ptr<Node> takes ownership of the Node object and ensured it is destroyed when no longer needed.
+
+the function std::make_shared<Node> , combines object creation and ownership management in one step.
+-ensures object is properly managed as soon as it is created.
+-Avoid the need for 'new'
+
+Takeaways:
+- std::shared_ptr<Node> is the explicit type for shared pointers
+- std::make_shared<Node> is the preferred way to create and manage shared pointers
+- auto simplifies type declaration
