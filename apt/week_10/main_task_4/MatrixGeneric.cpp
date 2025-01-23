@@ -14,7 +14,7 @@ template <typename T>
 Matrix<T>::Matrix(const Matrix<T>& other){
     for(int row = 0; row < SIZE; row++){
         for(int column = 0; column < SIZE; column++){
-            this->mat[row][column] = other.mat[row][other];
+            this->mat[row][column] = other.mat[row][column];
         }
     }
 }
@@ -54,3 +54,7 @@ bool Matrix<T>::operator==(const Matrix<T>& other) const{
     }
     return check;
 }
+
+// explicit instantiations
+template class Matrix<int>;
+template class Matrix<double>;

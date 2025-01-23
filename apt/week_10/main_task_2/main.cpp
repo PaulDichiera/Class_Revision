@@ -49,7 +49,6 @@ void printMat(Matrix& matrix){
     std::cout << std::endl;
     for(int row = 0; row < size; row++){
         for(int column = 0; column < size; column++){
-
             std::cout << matrix.get(row, column) << " ";
         }
         std::cout << std::endl;

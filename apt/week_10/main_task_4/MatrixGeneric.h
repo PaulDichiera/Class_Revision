@@ -1,3 +1,6 @@
+#ifndef MATRIXGENERIC_H
+#define MATRIXGENERIC_H
+
 template<typename T>
 
 #define SIZE    10
@@ -22,3 +25,5 @@ class Matrix {
     private:
         T mat[SIZE][SIZE];
 };
+
+#endif //MATRIXGENERIC_H
